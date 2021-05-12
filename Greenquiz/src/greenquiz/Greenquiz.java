@@ -9,7 +9,6 @@ public class Greenquiz
     {
         frmMenuPrincipal frmM = new frmMenuPrincipal(null, false);
         frmM.setVisible(true);
-        //Quiz quiz = new Quiz();
         
     }
     

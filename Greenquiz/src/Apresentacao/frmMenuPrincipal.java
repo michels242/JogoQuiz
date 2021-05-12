@@ -5,7 +5,7 @@
  */
 package Apresentacao;
 
-import greenquiz.Quiz;
+import Modelo.frmQuiz;
 
 /**
  *
@@ -23,6 +23,11 @@ public class frmMenuPrincipal extends javax.swing.JDialog
         initComponents();
     }
 
+    public frmMenuPrincipal()
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,12 +42,13 @@ public class frmMenuPrincipal extends javax.swing.JDialog
         btnJogar = new javax.swing.JButton();
         btnAjuda = new javax.swing.JButton();
         btnCreditos = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
         lblBackground = new javax.swing.JLabel();
-        btnCreditos1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Green Quiz");
         setBackground(new java.awt.Color(255, 255, 255));
+        setIconImage(null);
         setPreferredSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(null);
 
@@ -63,13 +69,20 @@ public class frmMenuPrincipal extends javax.swing.JDialog
             }
         });
         getContentPane().add(btnJogar);
-        btnJogar.setBounds(289, 180, 237, 70);
+        btnJogar.setBounds(280, 180, 237, 70);
 
         btnAjuda.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnAjuda.setForeground(new java.awt.Color(0, 255, 0));
         btnAjuda.setText("AJUDA");
+        btnAjuda.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnAjudaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAjuda);
-        btnAjuda.setBounds(290, 270, 237, 70);
+        btnAjuda.setBounds(280, 270, 237, 70);
 
         btnCreditos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnCreditos.setForeground(new java.awt.Color(0, 255, 0));
@@ -82,17 +95,24 @@ public class frmMenuPrincipal extends javax.swing.JDialog
             }
         });
         getContentPane().add(btnCreditos);
-        btnCreditos.setBounds(290, 380, 237, 70);
+        btnCreditos.setBounds(280, 360, 237, 70);
 
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/background.jpg"))); // NOI18N
+        btnSair.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnSair.setForeground(new java.awt.Color(0, 255, 0));
+        btnSair.setText("SAIR");
+        btnSair.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnSairActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSair);
+        btnSair.setBounds(280, 450, 237, 70);
+
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/background.jpg"))); // NOI18N
         getContentPane().add(lblBackground);
         lblBackground.setBounds(0, 0, 800, 600);
-
-        btnCreditos1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnCreditos1.setForeground(new java.awt.Color(0, 255, 0));
-        btnCreditos1.setText("CRÉDITOS");
-        getContentPane().add(btnCreditos1);
-        btnCreditos1.setBounds(289, 356, 237, 70);
 
         pack();
         setLocationRelativeTo(null);
@@ -100,14 +120,28 @@ public class frmMenuPrincipal extends javax.swing.JDialog
 
     private void btnCreditosActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCreditosActionPerformed
     {//GEN-HEADEREND:event_btnCreditosActionPerformed
-        // TODO add your handling code here:
+        frmCreditos frmC = new frmCreditos(null, true);
+        dispose();
+        frmC.setVisible(true);
     }//GEN-LAST:event_btnCreditosActionPerformed
 
     private void btnJogarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnJogarActionPerformed
     {//GEN-HEADEREND:event_btnJogarActionPerformed
-        Quiz quiz = new Quiz();
-        
+        dispose();
+        frmQuiz frmQ = new frmQuiz();
     }//GEN-LAST:event_btnJogarActionPerformed
+
+    private void btnAjudaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAjudaActionPerformed
+    {//GEN-HEADEREND:event_btnAjudaActionPerformed
+        frmAjuda frmA = new frmAjuda(null, true);
+        dispose();
+        frmA.setVisible(true);
+    }//GEN-LAST:event_btnAjudaActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSairActionPerformed
+    {//GEN-HEADEREND:event_btnSairActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,8 +204,8 @@ public class frmMenuPrincipal extends javax.swing.JDialog
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAjuda;
     private javax.swing.JButton btnCreditos;
-    private javax.swing.JButton btnCreditos1;
     private javax.swing.JButton btnJogar;
+    private javax.swing.JButton btnSair;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblTítulo;
     // End of variables declaration//GEN-END:variables

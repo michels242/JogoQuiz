@@ -1,68 +1,12 @@
-package greenquiz;
+package Modelo;
 
-//Importes de eventos necessarios para trabalhar com a ação dos botoes.
 import java.awt.event.*;
 import java.awt.*;
-import java.beans.PropertyChangeListener;
 import javax.swing.*;
 
-public class Quiz implements ActionListener
+public class frmQuiz extends absPropriedades implements ActionListener
 {
-    //Array de strings com as perguntas do quiz.
-    String[] perguntas = 
-    {
-      "O que é reciclagem?",
-      "O que é coleta seletiva?",
-      "Sobre as latas de coleta seletiva de lixo, quantas são as cores existentes?",
-      "De acordo com a coleta seletiva, a lata de lixo da cor verde se destina ao descarte de:",
-      "Qual a forma de descarte com menor impacto ao meio ambiente?",
-      "A coleta seletiva faz parte do processo de reciclagem. Qual o tipo de reutilização pode se dar aos resíduos orgânicos?",
-      "Qual o tempo estimado na decomposição do plástico:",
-      "Os 8 R's da consciência ambiental são",
-      "Onde deve ser feito o descarte de pilhas e baterias?",
-      "Qual o material abaixo demora mais de mil anos para se decompor?"
-    };
-    
-    //Array de strings com todas alternativas de cada pergunta.
-    String[][] alternativas =
-    {
-        {"Processo de tratamento de esgoto", "Nome dado para todo o processo do lixo após seu descarte", "Transformação de materiais usados em novos produtos para consumo", "Nenhuma das alternativas acima"},
-        {"Envio de todo o lixo produzido para cooperativas ou entrega para catadores de rua", "Separação e recolhimento dos resíduos para o reaproveitamento por meio de reciclagem", "Processo de envio de lixo para aterros e lixões", "Coleta de lixo"},
-        {"5", "4", "6", "10"},
-        {"Vidro", "Resíduos orgânicos", "Papel/Papelão", "Plástico"},
-        {"Lixão", "Aterro controlado", "Incineração", "Aterro sanitário"},
-        {"Compostagem", "Aproveitamento de sementes", "Replantar alimentos que contenham raízes", "Todas as respostas estão corretas"},
-        {"Mais de 20 anos", "Mais de 200 anos", "Mais de 400 anos", "De 6 meses a 1 ano"},
-        {"Repensar, recusar, reduzir, reparar, reutilizar, reciclar, responsabilizar-se e reformar", "Repensar, recusar, reduzir, reparar, reutilizar, reciclar, responsabilizar-se e repassar", "Repensar, recusar, reduzir, reparar, reutilizar, reciclar, restabelecer-se e repassar", "Repensar, repetir, reduzir, reparar, reutilizar, reciclar, responsabilizar-se e repassar"},
-        {"Rio", "Lixo comum", "Revendedores e fabricantes", "Enterrar"},
-        {"Latas de alumínio", "Isopor", "Fraldas descartável comum", "Vidro"}
-    };
-    
-    //Array char com todas respostas.
-    char[] respostas =
-    {
-        'C',
-        'B',
-        'D',
-        'A',
-        'D',
-        'D',
-        'C',
-        'B',
-        'C',
-        'D'
-    };
-    
-    //Variaveis.
-    char palpite;
-    char resposta;
-    int indice;
-    int respostasCertas = 0;
-    int totalPerguntas = perguntas.length;
-    int resultado;
-    int tempo = 10;
-    
-    //Formulario Jframe.
+    //Formulario Jframe e componentes.
     JFrame frame = new JFrame();
     JTextField txf = new JTextField();
     JTextArea txa = new JTextArea();
@@ -79,8 +23,8 @@ public class Quiz implements ActionListener
     JTextField txfNumeroCerto = new JTextField();
     JTextField txfPorcentagem = new JTextField();
     
-    //timer da contagem regressiva.
-    Timer timer = new Timer(2000, new ActionListener()
+    //timer da contagem regressiva, ele tbm trata a pergunta como errada e pula para a proxima quando o tempo se esgota.
+    Timer timer = new Timer(1000, new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
@@ -93,20 +37,19 @@ public class Quiz implements ActionListener
                 }
             }
         });
-   
-    //Metodos:
-    //Construtor para o formulario.
-    public Quiz()
+    
+    public frmQuiz()
     {
-        //configuraçoes corpo form.
+        //configuraçoes corpo do form.
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(650,650);
+        frame.setSize(800,650);
         frame.getContentPane().setBackground(new Color(50,50,50));
         frame.setLayout(null);
-        frame.setResizable(false);
+        frame.setResizable(false);  
+        frame.setLocationRelativeTo(null); 
         
-        //configuração txf
-        txf.setBounds(0,0,650,50);
+        //configuração txf que contem o numero da pergunta que o jogador esta.
+        txf.setBounds(0,0,800,50);
         txf.setBackground(new Color(25,25,25));
         txf.setForeground(new Color(25,255,0));
         txf.setFont(new Font("Ink Free",Font.BOLD,30));
@@ -114,17 +57,17 @@ public class Quiz implements ActionListener
         txf.setHorizontalAlignment(JTextField.CENTER);
         txf.setEditable(false);
         
-        //configuraçao txa
-        txa.setBounds(0,50,650,50);
+        //configuraçao txa que exibira a pergunta.
+        txa.setBounds(0,50,800,50);
         txa.setLineWrap(true);
         txa.setWrapStyleWord(true);
         txa.setBackground(new Color(25,25,25));
         txa.setForeground(new Color(25,255,0));
-        txa.setFont(new Font("MV Boli",Font.BOLD,15));
+        txa.setFont(new Font("Agency FB",Font.BOLD,21));
         txa.setBorder(BorderFactory.createBevelBorder(1));
         txa.setEditable(false);
         
-        //configuração botoes.
+        //configuração dos botoes das alternativas.
         btnA.setBounds(0,100,100,100);
         btnA.setFont(new Font("MV Boli",Font.BOLD,35));
         btnA.setFocusable(false);
@@ -149,29 +92,29 @@ public class Quiz implements ActionListener
         btnD.addActionListener(this);
         btnD.setText("D");
         
-        //configuraçoes lbls de respostas.
-        lblRespostaA.setBounds(125,100,500,100);
+        //configuração dos lbls (texto das alternativas).
+        lblRespostaA.setBounds(125,100,650,100);
         lblRespostaA.setBackground(new Color(50,50,50));
         lblRespostaA.setForeground(new Color(25,255,0));
-        lblRespostaA.setFont(new Font("MV Boli",Font.PLAIN,12));
+        lblRespostaA.setFont(new Font("Agency FB",Font.PLAIN,23));
         
-        lblRespostaB.setBounds(125,200,500,100);
+        lblRespostaB.setBounds(125,200,650,100);
         lblRespostaB.setBackground(new Color(50,50,50));
         lblRespostaB.setForeground(new Color(25,255,0));
-        lblRespostaB.setFont(new Font("MV Boli",Font.PLAIN,12));
+        lblRespostaB.setFont(new Font("Agency FB",Font.PLAIN,23));
         
-        lblRespostaC.setBounds(125,300,500,100);
+        lblRespostaC.setBounds(125,300,650,100);
         lblRespostaC.setBackground(new Color(50,50,50));
         lblRespostaC.setForeground(new Color(25,255,0));
-        lblRespostaC.setFont(new Font("MV Boli",Font.PLAIN,12));
+        lblRespostaC.setFont(new Font("Agency FB",Font.PLAIN,23));
         
-        lblRespostaD.setBounds(125,400,500,100);
+        lblRespostaD.setBounds(125,400,650,100);
         lblRespostaD.setBackground(new Color(50,50,50));
         lblRespostaD.setForeground(new Color(25,255,0));
-        lblRespostaD.setFont(new Font("MV Boli",Font.PLAIN,12));
+        lblRespostaD.setFont(new Font("Agency FB",Font.PLAIN,23));
         
-        //configuraçoes timer no form.
-        lblTempoRestante.setBounds(535,510,100,100);
+        //configuração do cronômetro que aparece no form.
+        lblTempoRestante.setBounds(670,510,100,100);
         lblTempoRestante.setBackground(new Color(25,25,25));
         lblTempoRestante.setForeground(new Color(255,0,0));
         lblTempoRestante.setFont(new Font("Ink Free",Font.BOLD,60));
@@ -180,15 +123,15 @@ public class Quiz implements ActionListener
         lblTempoRestante.setHorizontalAlignment(JTextField.CENTER);
         lblTempoRestante.setText(String.valueOf(tempo));
         
-        lblTempo.setBounds(535,475,100,25);
+        lblTempo.setBounds(520,550,150,30);
         lblTempo.setBackground(new Color(50,50,50));
         lblTempo.setForeground(new Color(255,0,0));
-        lblTempo.setFont(new Font("MV Boli",Font.PLAIN,15));
+        lblTempo.setFont(new Font("MV Boli",Font.PLAIN,18));
         lblTempo.setHorizontalAlignment(JTextField.CENTER);
         lblTempo.setText("Cronômetro:");
         
-        //configuraçoes perguntas certas.
-        txfNumeroCerto.setBounds(225,225,200,100);
+        //configuração do numero de perguntas acertadas.
+        txfNumeroCerto.setBounds(300,225,200,100);
         txfNumeroCerto.setBackground(new Color(25,25,25));
         txfNumeroCerto.setForeground(new Color(25,255,0));
         txfNumeroCerto.setFont(new Font("Ink Free",Font.BOLD,50));
@@ -196,8 +139,8 @@ public class Quiz implements ActionListener
         txfNumeroCerto.setHorizontalAlignment(JTextField.CENTER);
         txfNumeroCerto.setEditable(false);
         
-        //configuraçoes porcentagem acertada.
-        txfPorcentagem.setBounds(225,325,200,100);
+        //configuração da porcentagem total acertada.
+        txfPorcentagem.setBounds(300,325,200,100);
         txfPorcentagem.setBackground(new Color(25,25,25));
         txfPorcentagem.setForeground(new Color(25,255,0));
         txfPorcentagem.setFont(new Font("Inke Free",Font.BOLD,50));
@@ -205,7 +148,8 @@ public class Quiz implements ActionListener
         txfPorcentagem.setHorizontalAlignment(JTextField.CENTER);
         txfPorcentagem.setEditable(false);
         
-        //adds e funçoes.
+        //adds para adicionar os componentes no form.
+        //frame.add(btnMenu);
         frame.add(lblTempo);
         frame.add(lblTempoRestante);
         frame.add(lblRespostaA);
@@ -223,7 +167,8 @@ public class Quiz implements ActionListener
         proximaPergunta();
     }
     
-    //Metodo para as proximas perguntas.
+    
+    //Metodo para as perguntas.
     public void proximaPergunta()
     {
         if(indice >= totalPerguntas)
@@ -232,7 +177,7 @@ public class Quiz implements ActionListener
         }
         else
         {
-            txf.setText("Pergunta" + (indice+1));
+            txf.setText("Pergunta: " + (indice+1));
             txa.setText(perguntas[indice]);
             lblRespostaA.setText(alternativas[indice][0]);
             lblRespostaB.setText(alternativas[indice][1]);
@@ -241,8 +186,8 @@ public class Quiz implements ActionListener
             timer.start();
         }
     }
-
-    //Metodo para o click do botao, escolher alternativa.
+    
+    //Tratamento dos botoes das alternativas e escolhas certas/erradas.
     @Override
     public void actionPerformed(ActionEvent e)
     {
@@ -250,6 +195,7 @@ public class Quiz implements ActionListener
         btnB.setEnabled(false);
         btnC.setEnabled(false);
         btnD.setEnabled(false);
+        
         
         if(e.getSource() == btnA)
         {
@@ -285,8 +231,7 @@ public class Quiz implements ActionListener
         } 
         mostrarResposta();
     }
-    
-    //Metodo para exibir as respostas.
+    //Metodo para mudar a cor das alternativas erradas para vermelho, sinalizando a correta que permaneçe verde.
     public void mostrarResposta()
     {
         timer.stop();
@@ -304,7 +249,8 @@ public class Quiz implements ActionListener
         if(respostas[indice] != 'D')
             lblRespostaD.setForeground(new Color(255,0,0));
         
-        Timer pause = new Timer(2000, new ActionListener()
+        //timer utilizado aqui tbm para resetar o tempo assim que mudar de pergunta. 
+        Timer pause = new Timer(1000, new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
@@ -315,7 +261,7 @@ public class Quiz implements ActionListener
                 lblRespostaD.setForeground(new Color(25,255,0));
                 
                 resposta = ' ';
-                tempo = 10;
+                tempo = 15;
                 lblTempoRestante.setText(String.valueOf(tempo));
                 btnA.setEnabled(true);
                 btnB.setEnabled(true);
@@ -330,8 +276,7 @@ public class Quiz implements ActionListener
         pause.start();
               
     }
-    
-    //Metodo dos resultados. mostra a porcentagem e o numero de acertos.
+    //Metodo dos resultados finais, mostra a porcentagem é o numero de acertos ao terminar de responder todas perguntas.
     public void resultado()
     {
         btnA.setEnabled(false);
@@ -353,5 +298,5 @@ public class Quiz implements ActionListener
         
         frame.add(txfNumeroCerto);
         frame.add(txfPorcentagem);
-    }
+    }    
 }
