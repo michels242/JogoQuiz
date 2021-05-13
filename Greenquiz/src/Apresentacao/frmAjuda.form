@@ -53,13 +53,17 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnVoltar">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="32" green="32" red="32" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="cc" red="33" type="rgb"/>
+          <Color blue="0" green="ff" red="19" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Voltar ao menu principal"/>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltarActionPerformed"/>
@@ -73,7 +77,7 @@
     <Container class="javax.swing.JPanel" name="pnlTexto">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="66" type="rgb"/>
+          <Color blue="32" green="32" red="32" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>
@@ -120,9 +124,9 @@
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="ff" red="0" type="rgb"/>
+              <Color blue="0" green="ff" red="19" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ao iniciar, voc&#xea; tera 15 segundos para responer a quest&#xe3;o, assim se repetindo at&#xe9; 10 perguntas, ao final da rodada seu resultado ser&#xe1; exibido."/>
+            <Property name="text" type="java.lang.String" value="Ao iniciar, voc&#xea; tera 20 segundos para responer a quest&#xe3;o, assim se repetindo at&#xe9; 10 perguntas, ao final da rodada seu resultado ser&#xe1; exibido."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTexto2">
@@ -131,7 +135,7 @@
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="ff" red="0" type="rgb"/>
+              <Color blue="0" green="ff" red="19" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Toda vez que &#xe9; iniciado, a ordem das perguntas acaba sendo aleat&#xf3;ria, assim sendo mais dif&#xed;cil de decor&#xe1;-las."/>
           </Properties>
@@ -142,7 +146,7 @@
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="ff" red="0" type="rgb"/>
+              <Color blue="0" green="ff" red="19" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Este &#xe9; um jogo de perguntas e respostas normal com tema educativo, e com uma mec&#xe2;nica que faz com que toda partida seja diferente."/>
           </Properties>
@@ -153,7 +157,7 @@
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="ff" red="0" type="rgb"/>
+              <Color blue="0" green="ff" red="19" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sera que voc&#xea; sabe o bastante sobre educa&#xe7;&#xe3;o ambiental? Esperamos que gostem do desafio e do quiz em s&#xed;, muito obrigado."/>
           </Properties>

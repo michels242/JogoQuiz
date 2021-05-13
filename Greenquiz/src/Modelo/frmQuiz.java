@@ -1,5 +1,6 @@
 package Modelo;
 
+import Apresentacao.frmMenuPrincipal;
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
@@ -14,6 +15,7 @@ public class frmQuiz extends absPropriedades implements ActionListener
     JButton btnB = new JButton();
     JButton btnC = new JButton();
     JButton btnD = new JButton();
+    JButton btnMenu = new JButton();
     JLabel lblRespostaA = new JLabel();
     JLabel lblRespostaB = new JLabel();
     JLabel lblRespostaC = new JLabel();
@@ -46,7 +48,8 @@ public class frmQuiz extends absPropriedades implements ActionListener
         frame.getContentPane().setBackground(new Color(50,50,50));
         frame.setLayout(null);
         frame.setResizable(false);  
-        frame.setLocationRelativeTo(null); 
+        frame.setLocationRelativeTo(null);
+        frame.setTitle("Green Quiz");
         
         //configuração txf que contem o numero da pergunta que o jogador esta.
         txf.setBounds(0,0,800,50);
@@ -91,6 +94,12 @@ public class frmQuiz extends absPropriedades implements ActionListener
         btnD.setFocusable(false);
         btnD.addActionListener(this);
         btnD.setText("D");
+        
+        btnMenu.setBounds(10,550,170,40);
+        btnMenu.setFont(new Font("MV Boli",Font.BOLD,18));
+        btnMenu.setFocusable(false);
+        btnMenu.addActionListener(this);
+        btnMenu.setText("Menu Principal");
         
         //configuração dos lbls (texto das alternativas).
         lblRespostaA.setBounds(125,100,650,100);
@@ -160,6 +169,7 @@ public class frmQuiz extends absPropriedades implements ActionListener
         frame.add(btnB);
         frame.add(btnC);
         frame.add(btnD);
+        frame.add(btnMenu);
         frame.add(txa);
         frame.add(txf);
         frame.setVisible(true);
@@ -228,7 +238,13 @@ public class frmQuiz extends absPropriedades implements ActionListener
             {
                 respostasCertas++;
             }
-        } 
+        }
+        if(e.getSource() == btnMenu)
+        {
+            frame.dispose();
+            frmMenuPrincipal frmM = new frmMenuPrincipal(null, true);
+            frmM.setVisible(true);
+        }
         mostrarResposta();
     }
     //Metodo para mudar a cor das alternativas erradas para vermelho, sinalizando a correta que permaneçe verde.
@@ -261,7 +277,7 @@ public class frmQuiz extends absPropriedades implements ActionListener
                 lblRespostaD.setForeground(new Color(25,255,0));
                 
                 resposta = ' ';
-                tempo = 15;
+                tempo = 20;
                 lblTempoRestante.setText(String.valueOf(tempo));
                 btnA.setEnabled(true);
                 btnB.setEnabled(true);
@@ -287,7 +303,7 @@ public class frmQuiz extends absPropriedades implements ActionListener
         resultado = (int)((respostasCertas/(double)totalPerguntas)*100);
         
         txf.setText("Resultados:");
-        txa.setText("");
+        txa.setText("Obrigado por jogar.");
         lblRespostaA.setText("");
         lblRespostaB.setText("");
         lblRespostaC.setText("");

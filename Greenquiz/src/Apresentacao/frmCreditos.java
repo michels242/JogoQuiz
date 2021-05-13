@@ -1,20 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Apresentacao;
 
-/**
- *
- * @author Gabriel
- */
 public class frmCreditos extends javax.swing.JDialog
 {
 
-    /**
-     * Creates new form frmCreditos
-     */
     public frmCreditos(java.awt.Frame parent, boolean modal)
     {
         super(parent, modal);
@@ -55,6 +43,7 @@ public class frmCreditos extends javax.swing.JDialog
         getContentPane().add(lblAgradecimento);
         lblAgradecimento.setBounds(230, 50, 360, 48);
 
+        lblNome1.setBackground(new java.awt.Color(50, 50, 50));
         lblNome1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblNome1.setForeground(new java.awt.Color(204, 0, 0));
         lblNome1.setText("Gabriel Lima de Almeida                                                      N660GF2");
@@ -103,9 +92,11 @@ public class frmCreditos extends javax.swing.JDialog
         getContentPane().add(lblSub);
         lblSub.setBounds(270, 120, 269, 32);
 
+        btnVoltar.setBackground(new java.awt.Color(50, 50, 50));
         btnVoltar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnVoltar.setForeground(new java.awt.Color(51, 255, 0));
+        btnVoltar.setForeground(new java.awt.Color(25, 255, 0));
         btnVoltar.setText("Voltar para o menu principal");
+        btnVoltar.setFocusable(false);
         btnVoltar.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)

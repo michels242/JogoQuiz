@@ -1,22 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Apresentacao;
 
 import Modelo.frmQuiz;
 
-/**
- *
- * @author Gabriel
- */
 public class frmMenuPrincipal extends javax.swing.JDialog
 {
 
-    /**
-     * Creates new form frmMenuPrincipal
-     */
     public frmMenuPrincipal(java.awt.Frame parent, boolean modal)
     {
         super(parent, modal);
@@ -58,9 +46,11 @@ public class frmMenuPrincipal extends javax.swing.JDialog
         getContentPane().add(lblTítulo);
         lblTítulo.setBounds(280, 50, 260, 49);
 
+        btnJogar.setBackground(new java.awt.Color(50, 50, 50));
         btnJogar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnJogar.setForeground(new java.awt.Color(0, 255, 0));
+        btnJogar.setForeground(new java.awt.Color(25, 255, 0));
         btnJogar.setText("JOGAR");
+        btnJogar.setFocusable(false);
         btnJogar.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -71,9 +61,11 @@ public class frmMenuPrincipal extends javax.swing.JDialog
         getContentPane().add(btnJogar);
         btnJogar.setBounds(280, 180, 237, 70);
 
+        btnAjuda.setBackground(new java.awt.Color(50, 50, 50));
         btnAjuda.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnAjuda.setForeground(new java.awt.Color(0, 255, 0));
+        btnAjuda.setForeground(new java.awt.Color(25, 255, 0));
         btnAjuda.setText("AJUDA");
+        btnAjuda.setFocusable(false);
         btnAjuda.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -84,9 +76,11 @@ public class frmMenuPrincipal extends javax.swing.JDialog
         getContentPane().add(btnAjuda);
         btnAjuda.setBounds(280, 270, 237, 70);
 
+        btnCreditos.setBackground(new java.awt.Color(50, 50, 50));
         btnCreditos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnCreditos.setForeground(new java.awt.Color(0, 255, 0));
+        btnCreditos.setForeground(new java.awt.Color(25, 255, 0));
         btnCreditos.setText("CRÉDITOS");
+        btnCreditos.setFocusable(false);
         btnCreditos.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -97,9 +91,11 @@ public class frmMenuPrincipal extends javax.swing.JDialog
         getContentPane().add(btnCreditos);
         btnCreditos.setBounds(280, 360, 237, 70);
 
+        btnSair.setBackground(new java.awt.Color(50, 50, 50));
         btnSair.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnSair.setForeground(new java.awt.Color(0, 255, 0));
+        btnSair.setForeground(new java.awt.Color(25, 255, 0));
         btnSair.setText("SAIR");
+        btnSair.setFocusable(false);
         btnSair.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -140,7 +136,7 @@ public class frmMenuPrincipal extends javax.swing.JDialog
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSairActionPerformed
     {//GEN-HEADEREND:event_btnSairActionPerformed
-        dispose();
+        System.exit(0);
     }//GEN-LAST:event_btnSairActionPerformed
 
     /**

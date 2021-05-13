@@ -1,20 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Apresentacao;
 
-/**
- *
- * @author Gabriel
- */
 public class frmAjuda extends javax.swing.JDialog
 {
 
-    /**
-     * Creates new form frmAjuda
-     */
     public frmAjuda(java.awt.Frame parent, boolean modal)
     {
         super(parent, modal);
@@ -53,9 +41,11 @@ public class frmAjuda extends javax.swing.JDialog
         getContentPane().add(lblTutorial);
         lblTutorial.setBounds(410, 40, 149, 32);
 
+        btnVoltar.setBackground(new java.awt.Color(50, 50, 50));
         btnVoltar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnVoltar.setForeground(new java.awt.Color(51, 204, 0));
+        btnVoltar.setForeground(new java.awt.Color(25, 255, 0));
         btnVoltar.setText("Voltar ao menu principal");
+        btnVoltar.setFocusable(false);
         btnVoltar.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -66,22 +56,22 @@ public class frmAjuda extends javax.swing.JDialog
         getContentPane().add(btnVoltar);
         btnVoltar.setBounds(30, 470, 240, 50);
 
-        pnlTexto.setBackground(new java.awt.Color(102, 102, 102));
+        pnlTexto.setBackground(new java.awt.Color(50, 50, 50));
 
         lblTexto3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblTexto3.setForeground(new java.awt.Color(0, 255, 0));
-        lblTexto3.setText("Ao iniciar, você tera 15 segundos para responer a questão, assim se repetindo até 10 perguntas, ao final da rodada seu resultado será exibido.");
+        lblTexto3.setForeground(new java.awt.Color(25, 255, 0));
+        lblTexto3.setText("Ao iniciar, você tera 20 segundos para responer a questão, assim se repetindo até 10 perguntas, ao final da rodada seu resultado será exibido.");
 
         lblTexto2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblTexto2.setForeground(new java.awt.Color(0, 255, 0));
+        lblTexto2.setForeground(new java.awt.Color(25, 255, 0));
         lblTexto2.setText("Toda vez que é iniciado, a ordem das perguntas acaba sendo aleatória, assim sendo mais difícil de decorá-las.");
 
         lblTexto1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblTexto1.setForeground(new java.awt.Color(0, 255, 0));
+        lblTexto1.setForeground(new java.awt.Color(25, 255, 0));
         lblTexto1.setText("Este é um jogo de perguntas e respostas normal com tema educativo, e com uma mecânica que faz com que toda partida seja diferente.");
 
         lblTexto4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblTexto4.setForeground(new java.awt.Color(0, 255, 0));
+        lblTexto4.setForeground(new java.awt.Color(25, 255, 0));
         lblTexto4.setText("Sera que você sabe o bastante sobre educação ambiental? Esperamos que gostem do desafio e do quiz em sí, muito obrigado.");
 
         javax.swing.GroupLayout pnlTextoLayout = new javax.swing.GroupLayout(pnlTexto);

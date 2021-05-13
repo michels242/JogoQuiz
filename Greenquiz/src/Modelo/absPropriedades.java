@@ -56,5 +56,5 @@ public abstract class absPropriedades
     protected int respostasCertas = 0;
     protected int totalPerguntas = perguntas.length;
     protected int resultado;
-    protected int tempo = 15;
+    protected int tempo = 20;
 }
