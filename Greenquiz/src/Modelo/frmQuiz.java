@@ -177,10 +177,10 @@ public class frmQuiz extends absPropriedades implements ActionListener
         proximaPergunta();
     }
     
-    
-    //Metodo para as perguntas.
+    //Metodo para as perguntas. (Inicio do Jogo.)
     public void proximaPergunta()
     {
+
         if(indice >= totalPerguntas)
         {
             resultado();
@@ -188,11 +188,16 @@ public class frmQuiz extends absPropriedades implements ActionListener
         else
         {
             txf.setText("Pergunta: " + (indice+1));
-            txa.setText(perguntas[indice]);
-            lblRespostaA.setText(alternativas[indice][0]);
-            lblRespostaB.setText(alternativas[indice][1]);
-            lblRespostaC.setText(alternativas[indice][2]);
-            lblRespostaD.setText(alternativas[indice][3]);
+            if(indice < 1)
+            {
+                Controle controle = new Controle();
+                this.ordemFinal = controle.ordemJogo;
+            }
+            txa.setText(this.ordemFinal[indice].pergunta);
+            lblRespostaA.setText(this.ordemFinal[indice].alternativa[0]);
+            lblRespostaB.setText(this.ordemFinal[indice].alternativa[1]);
+            lblRespostaC.setText(this.ordemFinal[indice].alternativa[2]);
+            lblRespostaD.setText(this.ordemFinal[indice].alternativa[3]);
             timer.start();
         }
     }
@@ -206,11 +211,10 @@ public class frmQuiz extends absPropriedades implements ActionListener
         btnC.setEnabled(false);
         btnD.setEnabled(false);
         
-        
         if(e.getSource() == btnA)
         {
             resposta = 'A';
-            if(resposta == respostas[indice])
+            if(resposta == this.ordemFinal[indice].resp)
             {
                 respostasCertas++;
             }
@@ -218,7 +222,7 @@ public class frmQuiz extends absPropriedades implements ActionListener
         if(e.getSource() == btnB)
         {
             resposta = 'B';
-            if(resposta == respostas[indice])
+            if(resposta == this.ordemFinal[indice].resp)
             {
                 respostasCertas++;
             }
@@ -226,7 +230,7 @@ public class frmQuiz extends absPropriedades implements ActionListener
         if(e.getSource() == btnC)
         {
             resposta = 'C';
-            if(resposta == respostas[indice])
+            if(resposta == this.ordemFinal[indice].resp)
             {
                 respostasCertas++;
             }
@@ -234,7 +238,7 @@ public class frmQuiz extends absPropriedades implements ActionListener
         if(e.getSource() == btnD)
         {
             resposta = 'D';
-            if(resposta == respostas[indice])
+            if(resposta == this.ordemFinal[indice].resp)
             {
                 respostasCertas++;
             }
@@ -247,6 +251,7 @@ public class frmQuiz extends absPropriedades implements ActionListener
         }
         mostrarResposta();
     }
+    
     //Metodo para mudar a cor das alternativas erradas para vermelho, sinalizando a correta que permaneçe verde.
     public void mostrarResposta()
     {
@@ -256,13 +261,14 @@ public class frmQuiz extends absPropriedades implements ActionListener
         btnC.setEnabled(false);
         btnD.setEnabled(false);
         
-        if(respostas[indice] != 'A')
+
+        if(this.ordemFinal[indice].resp != 'A')
             lblRespostaA.setForeground(new Color(255,0,0));
-        if(respostas[indice] != 'B')
+        if(this.ordemFinal[indice].resp != 'B')
             lblRespostaB.setForeground(new Color(255,0,0));
-        if(respostas[indice] != 'C')
+        if(this.ordemFinal[indice].resp != 'C')
             lblRespostaC.setForeground(new Color(255,0,0));
-        if(respostas[indice] != 'D')
+        if(this.ordemFinal[indice].resp != 'D')
             lblRespostaD.setForeground(new Color(255,0,0));
         
         //timer utilizado aqui tbm para resetar o tempo assim que mudar de pergunta. 
@@ -289,10 +295,10 @@ public class frmQuiz extends absPropriedades implements ActionListener
         });
         
         pause.setRepeats(false);
-        pause.start();
-              
+        pause.start();       
     }
-    //Metodo dos resultados finais, mostra a porcentagem é o numero de acertos ao terminar de responder todas perguntas.
+    
+    //Metodo dos resultados finais, mostra a porcentagem é o numero de acertos ao terminar de responder todas perguntas. (Final do Jogo.)
     public void resultado()
     {
         btnA.setEnabled(false);
@@ -314,5 +320,7 @@ public class frmQuiz extends absPropriedades implements ActionListener
         
         frame.add(txfNumeroCerto);
         frame.add(txfPorcentagem);
-    }    
+        
+        indice = 0;
+    }
 }
