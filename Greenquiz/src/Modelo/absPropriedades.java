@@ -54,7 +54,7 @@ public abstract class absPropriedades
     protected int respostasCertas = 0;
     protected int totalPerguntas = perguntas.length;
     protected int resultado;
-    protected int tempo = 20;
+    protected int tempo = 30;
     protected String pergunta1 = perguntas[0];
     protected String pergunta2 = perguntas[1];
     protected String pergunta3 = perguntas[2];
@@ -85,8 +85,5 @@ public abstract class absPropriedades
     protected char resposta8 = respostas[7];
     protected char resposta9 = respostas[8];
     protected char resposta10 = respostas[9];
-    protected String[] pergRandomizada = {pergunta1, pergunta2, pergunta3, pergunta4, pergunta5, pergunta6, pergunta7, pergunta8, pergunta9, pergunta10};
-    protected String[][] altRandomizada = {alternativa1, alternativa2, alternativa3, alternativa4, alternativa5, alternativa6, alternativa7, alternativa8, alternativa9, alternativa10};
-    protected char[] respRandomizada = {resposta1, resposta2, resposta3, resposta4, resposta5, resposta6, resposta7, resposta8, resposta9, resposta10};
     protected Perguntas[] ordemFinal = new Perguntas[10];
 }

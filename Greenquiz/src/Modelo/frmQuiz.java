@@ -177,7 +177,7 @@ public class frmQuiz extends absPropriedades implements ActionListener
         proximaPergunta();
     }
     
-    //Metodo para as perguntas. (Inicio do Jogo.)
+    //Método para as perguntas. (Inicio do Jogo.)
     public void proximaPergunta()
     {
 
@@ -252,7 +252,7 @@ public class frmQuiz extends absPropriedades implements ActionListener
         mostrarResposta();
     }
     
-    //Metodo para mudar a cor das alternativas erradas para vermelho, sinalizando a correta que permaneçe verde.
+    //Método para mudar a cor das alternativas erradas para vermelho, sinalizando a correta que permaneçe verde.
     public void mostrarResposta()
     {
         timer.stop();
@@ -283,7 +283,7 @@ public class frmQuiz extends absPropriedades implements ActionListener
                 lblRespostaD.setForeground(new Color(25,255,0));
                 
                 resposta = ' ';
-                tempo = 20;
+                tempo = 30;
                 lblTempoRestante.setText(String.valueOf(tempo));
                 btnA.setEnabled(true);
                 btnB.setEnabled(true);
@@ -298,7 +298,7 @@ public class frmQuiz extends absPropriedades implements ActionListener
         pause.start();       
     }
     
-    //Metodo dos resultados finais, mostra a porcentagem é o numero de acertos ao terminar de responder todas perguntas. (Final do Jogo.)
+    //Método dos resultados finais, mostra a porcentagem é o numero de acertos ao terminar de responder todas perguntas. (Final do Jogo.)
     public void resultado()
     {
         btnA.setEnabled(false);

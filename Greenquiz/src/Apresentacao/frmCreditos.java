@@ -20,14 +20,15 @@ public class frmCreditos extends javax.swing.JDialog
     {
 
         lblAgradecimento = new javax.swing.JLabel();
+        lblSub = new javax.swing.JLabel();
+        pnlNomes = new javax.swing.JPanel();
         lblNome1 = new javax.swing.JLabel();
         lblNome2 = new javax.swing.JLabel();
         lblNome3 = new javax.swing.JLabel();
-        lblNome4 = new javax.swing.JLabel();
         lblNome5 = new javax.swing.JLabel();
         lblNome6 = new javax.swing.JLabel();
         lblNome7 = new javax.swing.JLabel();
-        lblSub = new javax.swing.JLabel();
+        lblNome4 = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
         lblBackground = new javax.swing.JLabel();
 
@@ -43,54 +44,53 @@ public class frmCreditos extends javax.swing.JDialog
         getContentPane().add(lblAgradecimento);
         lblAgradecimento.setBounds(230, 50, 360, 48);
 
-        lblNome1.setBackground(new java.awt.Color(50, 50, 50));
-        lblNome1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblNome1.setForeground(new java.awt.Color(204, 0, 0));
-        lblNome1.setText("Gabriel Lima de Almeida                                                      N660GF2");
-        getContentPane().add(lblNome1);
-        lblNome1.setBounds(130, 210, 553, 25);
-
-        lblNome2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblNome2.setForeground(new java.awt.Color(204, 0, 0));
-        lblNome2.setText("Giovani Leonardo Brazão                                                     N5934B2");
-        getContentPane().add(lblNome2);
-        lblNome2.setBounds(130, 240, 555, 25);
-
-        lblNome3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblNome3.setForeground(new java.awt.Color(204, 0, 0));
-        lblNome3.setText("João Vitor Rodrigues Gauglitz                                             N5778H5");
-        getContentPane().add(lblNome3);
-        lblNome3.setBounds(130, 270, 557, 25);
-
-        lblNome4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblNome4.setForeground(new java.awt.Color(204, 0, 0));
-        lblNome4.setText("Letson Mendes de oliveira                                                    F331865");
-        getContentPane().add(lblNome4);
-        lblNome4.setBounds(130, 300, 560, 25);
-
-        lblNome5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblNome5.setForeground(new java.awt.Color(204, 0, 0));
-        lblNome5.setText("Michel Souza Paschoal dos Santos                                      F1305I8");
-        getContentPane().add(lblNome5);
-        lblNome5.setBounds(130, 330, 560, 25);
-
-        lblNome6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblNome6.setForeground(new java.awt.Color(204, 0, 0));
-        lblNome6.setText("Rafael Ribeiro de Araujo                                                       F205HC0");
-        getContentPane().add(lblNome6);
-        lblNome6.setBounds(130, 360, 560, 25);
-
-        lblNome7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblNome7.setForeground(new java.awt.Color(204, 0, 0));
-        lblNome7.setText("Vinícius Iudi Akagui Campos                                                N636EF0");
-        getContentPane().add(lblNome7);
-        lblNome7.setBounds(130, 390, 554, 25);
-
         lblSub.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblSub.setForeground(new java.awt.Color(0, 102, 0));
         lblSub.setText("Membros do projeto APS");
         getContentPane().add(lblSub);
         lblSub.setBounds(270, 120, 269, 32);
+
+        pnlNomes.setBackground(new java.awt.Color(51, 51, 51));
+        pnlNomes.setForeground(new java.awt.Color(102, 102, 102));
+
+        lblNome1.setBackground(new java.awt.Color(50, 50, 50));
+        lblNome1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNome1.setForeground(new java.awt.Color(51, 255, 0));
+        lblNome1.setText("Gabriel Lima de Almeida                                                      N660GF2");
+        pnlNomes.add(lblNome1);
+
+        lblNome2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNome2.setForeground(new java.awt.Color(51, 255, 0));
+        lblNome2.setText("Giovani Leonardo Brazão                                                     N5934B2");
+        pnlNomes.add(lblNome2);
+
+        lblNome3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNome3.setForeground(new java.awt.Color(51, 255, 0));
+        lblNome3.setText("João Vitor Rodrigues Gauglitz                                             N5778H5");
+        pnlNomes.add(lblNome3);
+
+        lblNome5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNome5.setForeground(new java.awt.Color(51, 255, 0));
+        lblNome5.setText("Michel Souza Paschoal dos Santos                                      F1305I8");
+        pnlNomes.add(lblNome5);
+
+        lblNome6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNome6.setForeground(new java.awt.Color(51, 255, 0));
+        lblNome6.setText("Rafael Ribeiro de Araujo                                                       F205HC0");
+        pnlNomes.add(lblNome6);
+
+        lblNome7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNome7.setForeground(new java.awt.Color(51, 255, 0));
+        lblNome7.setText("Vinícius Iudi Akagui Campos                                                N636EF0");
+        pnlNomes.add(lblNome7);
+
+        lblNome4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNome4.setForeground(new java.awt.Color(51, 255, 0));
+        lblNome4.setText("Letson Mendes de oliveira                                                    F331865");
+        pnlNomes.add(lblNome4);
+
+        getContentPane().add(pnlNomes);
+        pnlNomes.setBounds(100, 190, 600, 220);
 
         btnVoltar.setBackground(new java.awt.Color(50, 50, 50));
         btnVoltar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -192,5 +192,6 @@ public class frmCreditos extends javax.swing.JDialog
     private javax.swing.JLabel lblNome6;
     private javax.swing.JLabel lblNome7;
     private javax.swing.JLabel lblSub;
+    private javax.swing.JPanel pnlNomes;
     // End of variables declaration//GEN-END:variables
 }
